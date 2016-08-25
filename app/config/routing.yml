@@ -1,0 +1,4 @@
+campartist_catalog:
+    resource: "@CampartistCatalogBundle/Controller"
+    type: annotation
+    prefix:   /

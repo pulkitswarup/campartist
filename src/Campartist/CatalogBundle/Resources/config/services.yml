@@ -1,0 +1,4 @@
+services:
+#    campartist_catalog.example:
+#        class: Campartist\CatalogBundle\Example
+#        arguments: ["@service_id", "plain_value", %parameter%]

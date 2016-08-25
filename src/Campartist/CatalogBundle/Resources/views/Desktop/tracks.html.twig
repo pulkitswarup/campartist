@@ -1,0 +1,51 @@
+{% extends 'Campartist\CatalogBundle::Desktop/layout.html.twig' %}
+
+{% block title %}
+    Campartist - Be a part of the band
+{% endblock %}
+
+{% block stylesheets %}
+{% stylesheets '@CampartistCatalogBundle/Resources/public/css/*' filter='cssrewrite' %}
+    <link rel="stylesheet" href="{{ asset_url }}" />
+{% endstylesheets %}
+{% endblock %}
+{% block page_header %}
+    Top Tracks by {{ results.artist }}
+{% endblock %}
+{% block page_content %}
+    {% for track in results.tracks %}
+       <article class="row tupple">
+        <div class="col-md-2">
+            <img src="{{ attribute(track.image[1], '#text') }}" />
+        </div>
+        <div class="col-md-8"> 
+            <a href="{{ track.url }}" target="_blank">{{ track.name }}</a>
+            <div class="text-left">
+                <ul>
+                    <li>Playcount - {{ track.playcount }}</li>
+                    <li>Listeners - {{ track.listeners }}</li>
+                </ul> 
+             </div>
+        </div>
+    </article>
+    {% endfor %}
+<div class="navbar-right">
+        <ul class="pagination">
+        {{ pagination|raw }}
+ <!--            <li><a href="#"><<</a></li>
+            <li><a href="#"><</a></li>
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li><a href="#">></a></li>
+            <li><a href="#">>></a></li> -->
+        </ul>
+    </div>
+{% endblock %}
+{% block javascripts %}
+{% javascripts '@CampartistCatalogBundle/Resources/public/js/*' %}
+    <script src="{{ asset_url }}"></script>
+{% endjavascripts %}
+{% endblock %}

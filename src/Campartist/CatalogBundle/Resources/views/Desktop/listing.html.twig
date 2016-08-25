@@ -1,0 +1,46 @@
+{% extends 'Campartist\CatalogBundle::Desktop/layout.html.twig' %}
+
+{% block title %}
+    Campartist - Be a part of the band
+{% endblock %}
+
+{% block stylesheets %}
+{% stylesheets '@CampartistCatalogBundle/Resources/public/css/*' filter='cssrewrite' %}
+    <link rel="stylesheet" href="{{ asset_url }}" />
+{% endstylesheets %}
+{% endblock %}
+{% block page_header %}
+    Popular Artists In {{ results.country }}
+{% endblock %}
+{% block page_content %}
+    {% for artist in results.artists %}
+    <article class="row tupple">
+        <div class="col-md-2">
+            <!-- <img src="https://lastfm-img2.akamaized.net/i/u/174s/4859bf400fbc41ecc176cc9bb64b725e.png" /> -->
+            <img src="{{ attribute(artist.image[1], '#text') }}" />
+        </div>
+        <div class="col-md-8"> 
+            <a href="{{ url('listing', {'artist': artist.name}) }}" class="title">{{ artist.name }}</a>
+        </div>
+    </article>
+    {% endfor %}
+    <div class="navbar-right">
+        {{ pagination|raw }}
+         <!--    <ul class="pagination">
+            <li><a href="#"><<</a></li>
+            <li><a href="#"><</a></li>
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li><a href="#">></a></li>
+            <li><a href="#">>></a></li> -->
+        </ul>
+    </div>
+{% endblock %}
+{% block javascripts %}
+{% javascripts '@CampartistCatalogBundle/Resources/public/js/*' %}
+    <script src="{{ asset_url }}"></script>
+{% endjavascripts %}
+{% endblock %}

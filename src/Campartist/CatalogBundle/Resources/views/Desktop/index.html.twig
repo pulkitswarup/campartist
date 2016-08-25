@@ -1,0 +1,39 @@
+{% extends 'Campartist\CatalogBundle::Desktop/layout.html.twig' %}
+
+{% block title %}
+    Campartist - Be a part of the band
+{% endblock %}
+
+{% block stylesheets %}
+{% stylesheets '@CampartistCatalogBundle/Resources/public/css/*' filter='cssrewrite' %}
+    <link rel="stylesheet" href="{{ asset_url }}" />
+{% endstylesheets %}
+{% endblock %}
+{% block page_header %}
+    Be part of the Band
+{% endblock %}
+{% block page_content %}
+  <div class="row text-center">
+    <div class="col-md-6 col-md-offset-3">
+        <form name="search" id="search" action="{{ url('searchform') }}" method="post" class="margin-40">
+            <input type="search" name="query" id="query" class="input-lg" value="" placeholder="Type here to search..."> <input type="submit" name="search" id="search" class="btn-lg" value="Search">
+        </form>
+    </div>
+  </div>
+{% endblock %}
+{% block javascripts %}
+{% javascripts '@CampartistCatalogBundle/Resources/public/js/*' %}
+    <script src="{{ asset_url }}"></script>
+{% endjavascripts %}
+<script type="text/javascript">
+$( "#search" ).submit(function( event ) {
+  var action = $('#search').prop('action');
+  var query = $('#query').val();
+  action = String(action).replace(/\/$/, '');
+  query = query.toLowerCase();
+  $("#search").attr("action", action + '/' +encodeURI(query));
+  var action = $('#search').prop('action');
+  // event.preventDefault();
+});
+</script>
+{% endblock %}
