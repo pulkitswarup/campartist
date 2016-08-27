@@ -90,7 +90,7 @@ In order, to view logs
 ```
 docker-compose logs
 ```
-#### TODO
+#### ToDo
 1. Although, the project lays down the foundation of the code, it is yet not complete
 2. Exception case handling in Test Case (Removed because of incompatibility with PHP 7.0)
 3. Bug Fixes
