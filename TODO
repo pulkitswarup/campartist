@@ -1,6 +1,0 @@
-API URL(s)
-Artists by Country
-http://ws.audioscrobbler.com/2.0/?method=geo.gettopartists&country=bangladesh&api_key=d966f2c28ce75500c752e809943eac39&format=json&page=1&limit=2
-
-Top Tracks by Artists
-http://ws.audioscrobbler.com/2.0/?method=artist.gettoptracks&artist=cher&api_key=d966f2c28ce75500c752e809943eac39&format=json&limit=2&page=1

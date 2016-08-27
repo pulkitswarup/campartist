@@ -1,4 +1,5 @@
-campartist
-==========
+# CAMPARTIST
 
-A Symfony project created on August 23, 2016, 3:44 pm.
+#### Requirement
+
+* **php** >= 7.0 (Along with web server i.e. nginx, apache, etc.)

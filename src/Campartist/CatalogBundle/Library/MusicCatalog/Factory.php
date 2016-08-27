@@ -1,6 +1,6 @@
 <?php
 
-namespace MusicCatalog;
+namespace MusicCatalog  ;
 
 use MusicCatalog\Request;
 

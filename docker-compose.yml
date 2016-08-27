@@ -1,0 +1,16 @@
+app:
+    # image: php-fpm-symfony:latest
+    image: php:7.0-fpm  
+    volumes:
+       - ./:/apps/campartist
+    working_dir: /apps/campartist
+web:
+   ports:
+      - "8000:80"
+   image: nginx:1.10.1
+   links:
+      - app
+   volumes_from:
+      - app:ro
+   volumes:
+      - ./app/docker/app/config/nginx:/etc/nginx/conf.d

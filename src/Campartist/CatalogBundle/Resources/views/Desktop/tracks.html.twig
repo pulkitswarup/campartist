@@ -10,39 +10,37 @@
 {% endstylesheets %}
 {% endblock %}
 {% block page_header %}
-    Top Tracks by {{ results.artist }}
+    Top Tracks by {% if results.artist %}{{ results.artist }}{% else %}{{artist}}{% endif %}
 {% endblock %}
 {% block page_content %}
-    {% for track in results.tracks %}
-       <article class="row tupple">
-        <div class="col-md-2">
-            <img src="{{ attribute(track.image[1], '#text') }}" />
+    {% if results %}
+        {% for track in results.tracks %}
+           <article class="row tupple">
+            <div class="col-md-2">
+                <img src="{{ attribute(track.image[1], '#text') }}" />
+            </div>
+            <div class="col-md-8"> 
+                <a href="{{ track.url }}" target="_blank">{{ track.name }}</a>
+                <div class="text-left">
+                    <ul>
+                        <li>Playcount - {{ track.playcount }}</li>
+                        <li>Listeners - {{ track.listeners }}</li>
+                    </ul> 
+                 </div>
+            </div>
+        </article>
+        {% endfor %}
+        <div class="navbar-right">
+            <ul class="pagination">
+            {{ results.pagination|raw }}
         </div>
-        <div class="col-md-8"> 
-            <a href="{{ track.url }}" target="_blank">{{ track.name }}</a>
-            <div class="text-left">
-                <ul>
-                    <li>Playcount - {{ track.playcount }}</li>
-                    <li>Listeners - {{ track.listeners }}</li>
-                </ul> 
-             </div>
+    {% else %}
+        <div class="text-center">
+            <em class="h4">
+                No Results Found
+            </em>
         </div>
-    </article>
-    {% endfor %}
-<div class="navbar-right">
-        <ul class="pagination">
-        {{ pagination|raw }}
- <!--            <li><a href="#"><<</a></li>
-            <li><a href="#"><</a></li>
-            <li><a href="#">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#">4</a></li>
-            <li><a href="#">5</a></li>
-            <li><a href="#">></a></li>
-            <li><a href="#">>></a></li> -->
-        </ul>
-    </div>
+    {% endif %}
 {% endblock %}
 {% block javascripts %}
 {% javascripts '@CampartistCatalogBundle/Resources/public/js/*' %}

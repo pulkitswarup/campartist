@@ -21,10 +21,13 @@ class DetailsController extends Controller
         $geoListingManager = $Factory->getTracksListingManager();
         $results = $geoListingManager->getTopTracksByArtists($artist, $page, $config);
 
-        $uri = $this->generateUrl('listing', array('artist' => $artist));
-        $pagination = $this->getPagination($results['total'], $results['rpp'], $page, $uri);
+        if($results['total'] > 0) {
+            $uri = $this->generateUrl('listing', array('artist' => $artist));
+            $pagination = $this->getPagination($results['total'], $results['rpp'], $page, $uri);
+            $results['pagination'] = $pagination;
+        }
 
-        return $this->render("CampartistCatalogBundle::Desktop/tracks.html.twig", ["results" => $results, "pagination" => $pagination]);
+        return $this->render("CampartistCatalogBundle::Desktop/tracks.html.twig", ["results" => $results, "artist" => $artist]);
     }
 
     private function getPagination($total, $rpp, $current_page, $base_uri) {

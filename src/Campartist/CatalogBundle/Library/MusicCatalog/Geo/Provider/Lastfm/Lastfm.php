@@ -17,7 +17,7 @@ class Lastfm implements GeoInterface {
     }
 
     public function getTopArtists($country, $page = 1, $limit = 5, $format = "json") {
-        if($format == 'json') {
+        if($format == 'json' && trim($country) != '') {
             $uri = $this->config['geo']['topartists']['url'][$format] . "?method=geo.gettopartists&country=" . $country . "&api_key=" . $this->config['api_key'] . "&format=" . $format . "&page=" . $page . "&limit=" . $limit; 
         } else {
             throw new \InvalidArgumentException('Invalid response format (geo - topartists) - ' . $format);

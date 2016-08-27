@@ -19,14 +19,16 @@ class ListingController extends Controller
      */
     public function resultsAction($country, $page = 1) {
         $config = $this->container->getParameter('campartist_catalog.config');
-        $Factory = new Factory();
-        $geoListingManager = $Factory->getGeoListingManager();
+        $managerFactory = new Factory();
+        $geoListingManager = $managerFactory->getGeoListingManager();
         $results = $geoListingManager->getTopArtistsByCountry($country, $page, $config);
 
-        $uri = $this->generateUrl('searchresults', array('country' => $country));
-        $pagination = $this->getPagination($results['total'], $results['rpp'], $page, $uri);
+        if($results['total'] > 0) {
+            $uri = $this->generateUrl('searchresults', array('country' => $country));
+            $results['pagination'] = $this->getPagination($results['total'], $results['rpp'], $page, $uri);
+        }
 
-        return $this->render("CampartistCatalogBundle::Desktop/listing.html.twig", ["results" => $results, "pagination" => $pagination]);
+        return $this->render("CampartistCatalogBundle::Desktop/listing.html.twig", ["results" => $results,"country" => $country]);
     }
 
     private function getPagination($total, $rpp, $current_page, $base_uri) {
