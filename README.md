@@ -45,6 +45,7 @@ docker-compose up -d
 In order, to speed up the process you can also download docker images:
 ```
 docker pull php:7.0-fpm
+
 docker pull nginx:1.10.1
 ```
 
@@ -53,6 +54,7 @@ Tests has been grouped into three categories
 - functional
 - integration
 - unit
+
 In order, to execute PHPUnit Test Cases in the project under specific categories, following are the commands:
 
 *functional*
@@ -74,11 +76,11 @@ Use the following command to execute all test(s):
 ```
 vendor/phpunit/phpunit/phpunit -c app/ src/Campartist/CatalogBundle/
 ```
-
-#### TODO
-1. Although, the project lays down the foundation of the code, it is yet not complete
-2. Exception case handling in Test Case (Removed because of incompatibility with PHP 7.0)
-3. Bug Fixes
+#### Web Access
+The project can be accessed at: 
+```
+[http://localhost:8000/geo]: http://localhost:8000/geo
+```
 
 #### Shell Access
 For debugging and maintenance purposes you may want access the containers shell. If you are using docker version 1.3.0 or higher you can access a running containers shell using docker exec command.
@@ -90,3 +92,13 @@ In order, to view logs
 ```
 docker-compose logs
 ```
+#### TODO
+1. Although, the project lays down the foundation of the code, it is yet not complete
+2. Exception case handling in Test Case (Removed because of incompatibility with PHP 7.0)
+3. Bug Fixes
+
+#### Contact Us
+Get in touch with your suggestions, thoughts and queries at pulkit.swarup[at]gmail.com
+
+#### License
+Please see [LICENSE.md](LICENSE.md) for details.
