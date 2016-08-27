@@ -42,10 +42,51 @@ https://docs.docker.com/compose/install/
 docker-compose up -d
 ```
 
-In oder, to speed up the process you can also download docker images:
+In order, to speed up the process you can also download docker images:
 ```
 docker pull php:7.0-fpm
-```
-```
 docker pull nginx:1.10.1
+```
+
+#### Tests
+Tests has been grouped into three categories
+- functional
+- integration
+- unit
+In order, to execute PHPUnit Test Cases in the project under specific categories, following are the commands:
+
+*functional*
+```
+vendor/phpunit/phpunit/phpunit -c app/ src/Campartist/CatalogBundle/ --group functional
+```
+
+*integration*
+```
+vendor/phpunit/phpunit/phpunit -c app/ src/Campartist/CatalogBundle/ --group unit
+```
+
+*unit*
+```
+vendor/phpunit/phpunit/phpunit -c app/ src/Campartist/CatalogBundle/ --group unit
+```
+
+Use the following command to execute all test(s):
+```
+vendor/phpunit/phpunit/phpunit -c app/ src/Campartist/CatalogBundle/
+```
+
+#### TODO
+1. Although, the project lays down the foundation of the code, it is yet not complete
+2. Exception case handling in Test Case (Removed because of incompatibility with PHP 7.0)
+3. Bug Fixes
+
+#### Shell Access
+For debugging and maintenance purposes you may want access the containers shell. If you are using docker version 1.3.0 or higher you can access a running containers shell using docker exec command.
+```
+docker exec -it campartist_app_1 bash
+```
+
+In order, to view logs
+```
+docker-compose logs
 ```
