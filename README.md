@@ -78,9 +78,7 @@ vendor/phpunit/phpunit/phpunit -c app/ src/Campartist/CatalogBundle/
 ```
 #### Web Access
 The project can be accessed at: 
-```
 [http://localhost:8000/geo]: http://localhost:8000/geo
-```
 
 #### Shell Access
 For debugging and maintenance purposes you may want access the containers shell. If you are using docker version 1.3.0 or higher you can access a running containers shell using docker exec command.
