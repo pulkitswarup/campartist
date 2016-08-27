@@ -10,7 +10,7 @@ This project is a wrapper over Lastfm API(s) to display Top Artist by Country & 
 * **docker-compose** >= 1.8.0
 * **git** > 2.0.0 (Used to clone the code on the machine)
 
-#### Installation
+#### Issues
 Docker is a relatively new project and is active being developed and tested by a thriving community of developers and testers and every release of docker features many enhancements and bugfixes.
 
 Given the nature of the development and release cycle it is very important that you have the latest version of docker installed because any issue that you encounter might have already been fixed with a newer docker release.
@@ -31,3 +31,21 @@ The host distribution and release version.
 Output of the docker version command
 Output of the docker info command
 The docker run command you used to run the image (mask out the sensitive bits).
+
+Please refer the undermentioned link(s) for installation:
+https://docs.docker.com/engine/installation/
+https://docs.docker.com/compose/install/
+
+#### Installation
+
+```
+docker-compose up -d
+```
+
+In oder, to speed up the process you can also download docker images:
+```
+docker pull php:7.0-fpm
+```
+```
+docker pull nginx:1.10.1
+```
