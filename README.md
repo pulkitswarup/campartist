@@ -34,8 +34,8 @@ The docker run command you used to run the image (mask out the sensitive bits).
 
 Please refer the undermentioned link(s) for installation:
 
-<https://docs.docker.com/engine/installation/>
-<https://docs.docker.com/compose/install/>
+1. <https://docs.docker.com/engine/installation/>
+2. <https://docs.docker.com/compose/install/>
 
 #### Installation
 
