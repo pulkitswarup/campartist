@@ -94,6 +94,7 @@ docker-compose logs
 #### ToDo
 1. Although, the project lays down the foundation of the code, it is yet not complete
 2. Exception case handling in Test Case (Removed because of incompatibility with PHP 7.0)
+3. Obviously, since there are a lot of API calls being made to a third-party application, need to introduce a caching layer to minimize the number of call and faster response times.
 3. Bug Fixes
 
 #### Contact Us
