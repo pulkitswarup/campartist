@@ -65,7 +65,7 @@ vendor/phpunit/phpunit/phpunit -c app/ src/Campartist/CatalogBundle/ --group fun
 
 *integration*
 ```
-vendor/phpunit/phpunit/phpunit -c app/ src/Campartist/CatalogBundle/ --group unit
+vendor/phpunit/phpunit/phpunit -c app/ src/Campartist/CatalogBundle/ --group integration
 ```
 
 *unit*
